@@ -4,8 +4,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import React,{ useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
 
 
@@ -22,14 +22,14 @@ function Users(props) {
 
      function validate(){
         for(let i=0;i<props.udata.length;i++){
-            if(cuname == props.udata[i].name){
+            if(cuname === props.udata[i].name){
                 uheader("ERROR!!!");
                 umessage("Username already exists");
                 setShowA(true);
                 ubg("danger");
                 return;
             }
-            if(cuid == props.udata[i].uid){
+            if(cuid === props.udata[i].uid){
                 uheader("ERROR!!!");
                 umessage("This Upi id is already present");
                 setShowA(true);
@@ -38,16 +38,16 @@ function Users(props) {
             }
         }
 
-        if(cuname == "" ){
+        if(cuname === "" ){
             uheader("ERROR!!!");
                 umessage("Username cannot be blank");
                 setShowA(true);
                 ubg("danger");
                 return;
         }
-        if(cuid == "" ){
+        if(cuid === "" || cuid !== cuid.toLowerCase() || !cuid.includes("@" ) || (cuid.split("@").length - 1)!==1){
             uheader("ERROR!!!");
-                umessage("Upi-id cannot be blank");
+                umessage("Invalid Upi id");
                 setShowA(true);
                 ubg("danger");
                 return;

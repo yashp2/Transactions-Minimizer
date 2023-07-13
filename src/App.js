@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Users from './Components/Users/Users';
+import Transactions from './Components/Transactions/Transactions';
+
 function App() {
   const [udata , updateudata] = useState([
     {
@@ -19,7 +21,8 @@ function App() {
   ]);
   return (
     <div className="App">
-      <Users udata = {udata} updateudata={updateudata} />
+      {/* <Users udata = {udata} updateudata={updateudata} /> */}
+      <Transactions />
     </div>
   );
 }
